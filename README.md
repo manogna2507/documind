@@ -2,8 +2,18 @@
 
 An end-to-end Retrieval-Augmented Generation (RAG) system that answers natural-language questions over technical documentation.
 
-**Live API:** [Coming soon — deploying]  
-**Interactive docs:** `/docs` on the deployed URL
+**Status:** Local development complete. API tested end-to-end via Swagger UI at `http://127.0.0.1:8000/docs`. Deployment planned as v2.
+
+**Run locally:**
+```bash
+git clone https://github.com/manogna2507/documind.git
+cd documind
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+export GROQ_API_KEY="your_key_here"
+uvicorn main:app --reload
+```
+Then open `http://127.0.0.1:8000/docs` to try the API.
 
 ## Architecture
 
