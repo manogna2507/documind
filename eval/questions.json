@@ -1,0 +1,122 @@
+[
+  {
+    "id": "q01",
+    "question": "How is the FastAPI class related to Starlette?",
+    "expected_source": "sample",
+    "expected_keywords": ["Starlette", "inherits"]
+  },
+  {
+    "id": "q02",
+    "question": "What does the app variable represent in a FastAPI application?",
+    "expected_source": "sample",
+    "expected_keywords": ["FastAPI", "instance"]
+  },
+  {
+    "id": "q03",
+    "question": "What is an operation in FastAPI?",
+    "expected_source": "sample",
+    "expected_keywords": ["operation", "HTTP", "method"]
+  },
+  {
+    "id": "q04",
+    "question": "What decorator is used to declare a GET endpoint?",
+    "expected_source": "sample",
+    "expected_keywords": ["@app.get", "decorator"]
+  },
+  {
+    "id": "q05",
+    "question": "What is the purpose of the OpenAPI schema?",
+    "expected_source": "sample",
+    "expected_keywords": ["OpenAPI", "schema", "describe"]
+  },
+  {
+    "id": "q06",
+    "question": "What is uvicorn used for?",
+    "expected_source": "sample",
+    "expected_keywords": ["uvicorn", "server"]
+  },
+  {
+    "id": "q07",
+    "question": "How do you return JSON from a FastAPI endpoint?",
+    "expected_source": "sample",
+    "expected_keywords": ["return", "message"]
+  },
+  {
+    "id": "q08",
+    "question": "How do you declare a path parameter in FastAPI?",
+    "expected_source": "path_params",
+    "expected_keywords": ["path", "parameter", "{"]
+  },
+  {
+    "id": "q09",
+    "question": "How do you specify the type of a path parameter?",
+    "expected_source": "path_params",
+    "expected_keywords": ["type", "int", "annotation"]
+  },
+  {
+    "id": "q10",
+    "question": "What happens if a path parameter fails type validation?",
+    "expected_source": "path_params",
+    "expected_keywords": ["error", "validation"]
+  },
+  {
+    "id": "q11",
+    "question": "How do you handle path parameters that contain slashes?",
+    "expected_source": "path_params",
+    "expected_keywords": ["path", "converter", "file_path"]
+  },
+  {
+    "id": "q12",
+    "question": "How do you use predefined values as path parameters?",
+    "expected_source": "path_params",
+    "expected_keywords": ["Enum", "predefined"]
+  },
+  {
+    "id": "q13",
+    "question": "How does FastAPI handle the order of path operations?",
+    "expected_source": "path_params",
+    "expected_keywords": ["order", "path"]
+  },
+  {
+    "id": "q14",
+    "question": "How do you document a path parameter with a description?",
+    "expected_source": "path_params",
+    "expected_keywords": ["description", "docstring"]
+  },
+  {
+    "id": "q15",
+    "question": "What is a class in Python?",
+    "expected_source": "python_classes",
+    "expected_keywords": ["class", "object", "bundle"]
+  },
+  {
+    "id": "q16",
+    "question": "How do you create an instance of a class?",
+    "expected_source": "python_classes",
+    "expected_keywords": ["instance", "instantiate"]
+  },
+  {
+    "id": "q17",
+    "question": "What is the difference between class attributes and instance attributes?",
+    "expected_source": "python_classes",
+    "expected_keywords": ["attribute", "class", "instance"]
+  },
+  {
+    "id": "q18",
+    "question": "What is inheritance in Python?",
+    "expected_source": "python_classes",
+    "expected_keywords": ["inheritance", "parent", "base"]
+  },
+  {
+    "id": "q19",
+    "question": "How do you override a method in a subclass?",
+    "expected_source": "python_classes",
+    "expected_keywords": ["override", "method", "subclass"]
+  },
+  {
+    "id": "q20",
+    "question": "What is the purpose of the self parameter?",
+    "expected_source": "python_classes",
+    "expected_keywords": ["self", "instance", "method"]
+  }
+]
