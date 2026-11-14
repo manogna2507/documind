@@ -1,0 +1,6 @@
+# Extra packages needed only to run the FastAPI backend (main.py) locally.
+-r requirements.txt
+fastapi
+uvicorn
+python-multipart
+pydantic

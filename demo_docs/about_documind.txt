@@ -1,0 +1,23 @@
+About DocuMind
+
+DocuMind is a question answering system over documents. It uses Retrieval-Augmented Generation, usually called RAG: instead of letting a language model answer from memory, the system first finds the passages of the documents that are most relevant to the question and then asks the model to answer using only those passages.
+
+Ingestion
+
+Documents are loaded with pdfplumber for PDF files, cleaned (ligatures are fixed and words that were split across lines are joined) and split into chunks of about 500 characters with an overlap of 50 characters. Each chunk is turned into a vector with the BAAI bge-small-en-v1.5 embedding model and stored in ChromaDB.
+
+Hybrid retrieval
+
+Semantic search finds chunks whose meaning is close to the question, but it can miss exact keywords. BM25 is a keyword search method that finds exact terms but ignores meaning. DocuMind runs both and merges the two ranked lists with Reciprocal Rank Fusion, or RRF. RRF gives each chunk a score of one divided by the sum of a constant (60) and its rank in each list, and then adds the scores. It needs no score normalization, which is fragile because the two retrievers produce scores on different scales. The top five chunks after fusion are passed to the model.
+
+Generation
+
+The answer is written by an open-weight language model, gpt-oss-120b, through the Groq API. The system prompt tells the model to answer only from the provided context, to give one short answer, to cite sources, and to say that it does not have enough information when the context does not contain the answer.
+
+Fixing two problems found in testing
+
+Early answers sometimes started in the middle of a word because the first PDF library dropped characters at line breaks. DocuMind now uses pdfplumber and cleans ligatures and hyphenated line breaks. A second problem was that language models sometimes continue a correct answer with invented follow-up questions and answers. DocuMind reduces this in three layers: a strict grounded prompt, stop sequences that cut the output when a follow-up pattern starts, and a final post-processing step that uses regular expressions to trim any follow-up that still appears.
+
+Evaluation
+
+Retrieval was evaluated on a self-written benchmark of 20 questions. The metrics are Recall at 5, which is the share of questions where a correct chunk appears in the top five results, and mean reciprocal rank, which rewards ranking the correct chunk higher. The benchmark is small and written by the same person who built the system, so the results are indicative only.

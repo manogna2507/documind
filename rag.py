@@ -21,7 +21,7 @@ from groq import Groq
 # --- Config ---
 DOCS_DIR = "docs"
 EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
-LLM_MODEL = "llama-3.3-70b-versatile"
+LLM_MODEL = os.getenv("LLM_MODEL", "openai/gpt-oss-120b")  # llama-3.3-70b-versatile was retired by Groq on 2026-08-16
 CHUNK_SIZE = 500
 CHUNK_OVERLAP = 50
 SEMANTIC_TOP_K = 8
@@ -228,7 +228,8 @@ Question: {query}"""
             {"role": "user", "content": prompt},
         ],
         temperature=0.1,
-        max_tokens=400,
+        **({"reasoning_effort": "low"} if "gpt-oss" in LLM_MODEL else {}),
+        max_tokens=1200,
         stop=["\n\nQ:", "\n\nQuestion:", "Please verify", "Here are the answers"],
     )
 

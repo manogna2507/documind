@@ -1,0 +1,23 @@
+REST API Basics
+
+A REST API lets a client talk to a server over HTTP. The client sends a request to a URL, and the server sends back a response with a status code and, usually, a JSON body.
+
+HTTP methods
+
+GET reads a resource and must not change anything on the server. POST creates a new resource. PUT replaces a resource completely with the data in the request. PATCH changes only the fields that are sent. DELETE removes a resource. GET, PUT and DELETE are idempotent, which means that sending the same request several times has the same effect as sending it once. POST is not idempotent, so sending it twice can create two resources.
+
+Path parameters and query parameters
+
+A path parameter is part of the URL path and identifies one resource, for example /users/42, where 42 is the user id. A query parameter comes after a question mark and is used to filter, sort or paginate a collection, for example /users?role=admin&page=2. Use a path parameter to say which resource, and a query parameter to say how to list or filter resources.
+
+Status codes
+
+200 means the request succeeded. 201 means a new resource was created. 204 means success with no content to return. 400 means the request was malformed or invalid. 401 means the client is not authenticated. 403 means the client is authenticated but not allowed to do this. 404 means the resource was not found. 409 means the request conflicts with the current state, for example a duplicate. 422 means the data was well formed but failed validation. 500 means an unexpected error on the server.
+
+Pagination
+
+A collection can contain thousands of items, so APIs return them in pages. Offset pagination uses page and size parameters and is simple but can skip or repeat items when data changes. Cursor pagination returns a cursor that marks the position of the last item, and is more reliable for data that changes often.
+
+Authentication with JWT
+
+A JSON Web Token, or JWT, is a signed token that the server issues after a user logs in. The client sends it in the Authorization header as a Bearer token on every request. The server checks the signature and the expiry time, and reads the user's role from the token to decide what the user is allowed to do. A JWT should be short lived, and it must never contain secrets because its contents can be read by anyone who has the token.
