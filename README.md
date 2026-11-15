@@ -2,7 +2,7 @@
 
 Ask questions over your documents and get short answers with cited sources. A Retrieval-Augmented Generation (RAG) system with **hybrid retrieval** (semantic + BM25, merged with Reciprocal Rank Fusion) and a grounded LLM answer step.
 
-**Live demo:** [ADD LINK AFTER DEPLOYING](https://your-app.streamlit.app)  
+**Live demo:** [documind-manogna.streamlit.app](https://documind-manogna.streamlit.app/)  
 **Stack:** Python · FastAPI · Streamlit · ChromaDB · `BAAI/bge-small-en-v1.5` · rank_bm25 · an open-weight LLM via the Groq API (default: gpt-oss-120b) · pdfplumber
 
 <!-- add demo.gif here: ![demo](demo.gif) -->
